@@ -7,7 +7,7 @@ import { userModel } from './../Db/models/user.model.js';
 
 export const signUp =  catchAsyncError(async (req,res,next)=>{
 let founded = await userModel.findOne({email:req.body.email})
-if (founded)return  next(new AppError("email is already regestierd",409))
+if (founded)return  next(new AppError("email is already regestierd",4))
 let user = new  userModel(req.body)
 await user.save()
 res.json({message : "added",user})
