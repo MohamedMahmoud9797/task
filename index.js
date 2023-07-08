@@ -14,7 +14,7 @@ app.use(cors())
 
 dbConnection()
 app.use("/api/v1/user",userRouter)
-app.use("/api/v1/auth", authRouter)
+app.use("", authRouter)
 app.use("/api/v1/task", taskRouter)
 app.all("*",(req,res,next)=>next(new AppError( `not found url ${req.originalUrl}` ,400 ))
 )
